@@ -1,11 +1,18 @@
 package arppl4.arppl4_spring_rental.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import net.bytebuddy.asm.Advice;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 
 
 public class Car {
