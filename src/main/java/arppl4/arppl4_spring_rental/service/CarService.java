@@ -15,12 +15,12 @@ import java.util.Optional;
 public class CarService {
     private final CarRepository carRepository;
 
-    public List<Car> getAllProduts() {
-        return carRepository.findAll();
-    }
 
-    public void addProduct(Car car) {
+    public void addCar(Car car) {
         carRepository.save(car);
+    }
+    public List<Car> getAllCar() {
+        return carRepository.getAllCar();
     }
 
     public void deleteById(Long identyfikator) {
@@ -28,7 +28,7 @@ public class CarService {
 
     }
 
-    public void updateProduct(Car daneAktualizujace) {
+    public void updateCar(Car daneAktualizujace) {
         Long identifier = daneAktualizujace.getId(); // identyfikator obiektu edytowanego
 
         Optional<Car> productOptional = carRepository.findById(identifier);
@@ -44,7 +44,7 @@ public class CarService {
                 editedProduct.setModel(daneAktualizujace.getModel());
             }
             if (daneAktualizujace.getProductionDate()!= null) {
-                editedProduct.setProductionDate(daneAktualizujace.getProductionDate();
+                editedProduct.setProductionDate(daneAktualizujace.getProductionDate());
             }
             if (daneAktualizujace.getBodyType() != null) {
                 editedProduct.setBodyType(daneAktualizujace.getBodyType());
@@ -65,5 +65,6 @@ public class CarService {
         }
         throw new EntityNotFoundException("Nie znaleziono produktu o id: " + daneAktualizujace.getId());
     }
+
 
 }
