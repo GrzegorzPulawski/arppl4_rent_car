@@ -21,5 +21,12 @@ public class CarController {
         carService.addCar(car);
 
     }
+    @GetMapping
+    public List<Car> carList() {
+        log.info("Wywołano metodę  car List");
+        List<Car> carList = carService.getAllCar();
+
+        return carList;
+    }
 
 }
